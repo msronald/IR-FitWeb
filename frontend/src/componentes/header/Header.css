@@ -1,0 +1,46 @@
+.Presentacion{
+    display: flex;
+    flex-direction: column;
+
+    margin: 30px auto;
+}
+.header{
+    height: 400px;
+    background: url('https://media.tenor.com/_9XerSEBrM4AAAAM/isaac.gif') no-repeat;
+    background-color: lightgray;
+    background-size: contain;
+    position: relative;
+    background-position: 50%;
+    border-radius: 20px;
+    border-color: gray;
+    border-style: solid;
+}
+
+.header-contents{
+    position: relative;
+    display: flex;
+    gap: 1.5vw;
+    max-width: 80%;
+    justify-content: space-around;
+    bottom: 10%;
+    left: 6vw;
+    align-items: center;
+    padding: 10px;
+    animation: fadeIn 3s;
+}
+
+.header-contents h2{
+    font-weight: 500;
+    color: black;
+    font-size: max(3vw, 12px);
+}
+
+.header-contents button{
+    border: none;
+    color: white;
+    font-weight: 500;
+    padding: 1vw 2.3vw;
+    background-color:#49557e;
+    font-size: max(1vw, 13px);
+    border-radius: 50px;
+}
