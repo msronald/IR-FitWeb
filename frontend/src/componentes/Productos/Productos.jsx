@@ -10,7 +10,7 @@ const Productos = ({categoria, setCategoria}) => {
       <div className='exploracion-lista-productos'>
         {categorias_productos.map((item, index)=>{
             return(
-                <div onClick={()=>setCategoria(prev=>prev===item.nombre_categoria?"All":item.nombre_categoria)}key={index} className='exploracion-item-lista-productos'>
+                <div onClick={()=>setCategoria(prev=>prev===item.nombre_categoria?"Todos":item.nombre_categoria)}key={index} className='exploracion-item-lista-productos'>
                     <img className={categoria===item.nombre_categoria?"activo":""} src={item.imagen_categoria} alt='' width='200px'/>
                     <p>{item.nombre_categoria}</p>
                 </div>
