@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './BarraDeNavegacion.css'
 import { assets } from '../../assets/assets'
+import { Link } from 'react-router-dom';
 
 const BarraDeNavegacion = () => {
 
@@ -10,10 +11,10 @@ const [menu,setMenu] = useState("Inicio");
     <div className='BarraDeNavegacion'>
       <img src={assets.logo} alt="logo" className="logo"/>
       <ul className='navbar-menu'>
-        <li onClick={()=>setMenu("Inicio")} className={menu==="Inicio"?"activo":""}>Inicio</li>
-        <li onClick={()=>setMenu("Productos")} className={menu==="Productos"?"activo":""}>Productos</li>
+        <Link to="/" onClick={()=>setMenu("Inicio")} className={menu==="Inicio"?"activo":""}>Inicio</Link>
+        <a href='#lista-productos' onClick={()=>setMenu("Productos")} className={menu==="Productos"?"activo":""}>Productos</a>
         <li onClick={()=>setMenu("Aplicacion-movil")} className={menu==="Aplicacion-movil"?"activo":""}>Aplicacion móvil</li>
-        <li onClick={()=>setMenu("Contactanos")} className={menu==="Contactanos"?"activo":""}>Contáctanos</li>
+        <a href='#footer' onClick={()=>setMenu("Contactanos")} className={menu==="Contactanos"?"activo":""}>Contáctanos</a>
       </ul>
       <div className="navbar-right">
         <img src={assets.search_icon} alt =""/>
