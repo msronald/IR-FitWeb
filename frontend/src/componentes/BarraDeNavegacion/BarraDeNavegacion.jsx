@@ -3,7 +3,7 @@ import './BarraDeNavegacion.css'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom';
 
-const BarraDeNavegacion = () => {
+const BarraDeNavegacion = (setShowLogin) => {
 
 const [menu,setMenu] = useState("Inicio");
 
@@ -24,7 +24,7 @@ const [menu,setMenu] = useState("Inicio");
             
           </div>
         </div>
-        <button>Iniciar sesion</button>
+        <button onClick={()=>setShowLogin(true)}>Iniciar sesion</button>
       </div>
     </div>
   )
