@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-      {showLogin?<LoginPopup/>:<></>}
+      {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
       <div className='app'>
         <Navbar setShowLogin={setShowLogin} />
         <BarraDeNavegacion/> {/*Toma todo el codigo del "barradenavegacion.jsx" y lo pone aqui o en donde queramos, React sirve para esto*/}
