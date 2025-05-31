@@ -1,5 +1,5 @@
-import React from 'react'
-import '/LoginPopup.css'
+import React, { useState } from 'react';
+import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 
 const LoginPopup = ({setShowLogin}) => {
@@ -7,7 +7,7 @@ const LoginPopup = ({setShowLogin}) => {
     const [currState,setCurrState] = useState("Login")
 
   return (
-    <div classname = 'login.popup'>
+    <div className = "login-popup">
         <form className="login-popup-container">
             <div className="login-popup-title">
                 <h2>{currState}</h2>
@@ -27,7 +27,7 @@ const LoginPopup = ({setShowLogin}) => {
                 </p>
             </div>
             {currState==="Login"
-            ?<p>Create a new account? <span onClick={()=>setCurrState("Sing Up")}>Click here</span></p>
+            ?<p>Create a new account? <span onClick={()=>setCurrState("Sign Up")}>Click here</span></p>
             :<p>Already have an account? <span onClick={()=>setCurrState("Login")}>Login here</span></p>
             }
             
