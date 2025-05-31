@@ -1,4 +1,4 @@
-import React from 'react' //Con esto podemos "usar html" dentro de un .js sin tener que manipular el DOM con funciones como getDocumentbyId =P
+import React, { useState } from 'react'
 import BarraDeNavegacion from './componentes/BarraDeNavegacion/BarraDeNavegacion'
 import { Route, Routes } from 'react-router-dom'
 import Inicio from './paginas/Inicio/Inicio.jsx'
@@ -15,8 +15,7 @@ const App = () => {
     <div>
       {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
       <div className='app'>
-        <Navbar setShowLogin={setShowLogin} />
-        <BarraDeNavegacion/> {/*Toma todo el codigo del "barradenavegacion.jsx" y lo pone aqui o en donde queramos, React sirve para esto*/}
+        <BarraDeNavegacion setShowLogin={setShowLogin} />
         <Routes>
           <Route path='/' element={<Inicio/>}/>
           <Route path='/carrito' element={<Carrito/>}/>
