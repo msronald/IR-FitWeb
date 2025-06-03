@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 
 const LoginPopup = ({setShowLogin}) => {
 
-    const [currState,setCurrState] = useState("Login")
+    const [currState,setCurrState] = useState("Iniciar sesión")
 
   return (
     <div className = "login-popup">
@@ -14,21 +14,21 @@ const LoginPopup = ({setShowLogin}) => {
                 <img onClick={()=>setShowLogin(false)} src={assets.cross_icon} alt="" />
             </div>
             <div className="login-popup-inputs">
-                {currState==="Login"?<></>: <input type="text" placeholder='Your name' required />}
+                {currState==="Iniciar sesión"?<></>: <input type="text" placeholder='Tu nombre' required />}
                
-                <input type="email" placeholder='Your email' required />
-                <input type="password" placeholder='Password' required />
+                <input type="email" placeholder='Tu Correo' required />
+                <input type="password" placeholder='Contraseña' required />
             </div>
-            <button>{currState==="Sign Up"?"Create account":"Login"}</button>
+            <button>{currState==="Registrarse"?"Crear cuenta":"Iniciar sesión"}</button>
             <div className="login-popup-condition">
                 <input type="checkbox" required />
                 <p>
-                    By continuing, i agree to the terms of use & privacy policy.
+                    Al continuar acepto los terminos de uso y politica de privacidad
                 </p>
             </div>
-            {currState==="Login"
-            ?<p>Create a new account? <span onClick={()=>setCurrState("Sign Up")}>Click here</span></p>
-            :<p>Already have an account? <span onClick={()=>setCurrState("Login")}>Login here</span></p>
+            {currState==="Iniciar sesión"
+            ?<p>Nuevo aquí? <span onClick={()=>setCurrState("Registrarse")}>Has Click aquí</span></p>
+            :<p>Ya tienes una cuenta? <span onClick={()=>setCurrState("Iniciar sesión")}>Inicia sesión aquí</span></p>
             }
             
             

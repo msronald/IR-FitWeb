@@ -42,5 +42,11 @@
     padding: 1vw 2.3vw;
     background-color:#49557e;
     font-size: max(1vw, 13px);
-    border-radius: 50px;
+    border-radius: 50px;   
+    cursor: pointer;
+}
+
+.header-contents button:hover{
+    background-color: #646cffaa;
+    transition: 0.3s;
 }
