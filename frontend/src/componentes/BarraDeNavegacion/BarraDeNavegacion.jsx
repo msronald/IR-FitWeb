@@ -3,7 +3,7 @@ import './BarraDeNavegacion.css'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom';
 
-const BarraDeNavegacion = (setShowLogin) => {
+const BarraDeNavegacion = ({setShowLogin}) => {
 
 const [menu,setMenu] = useState("Inicio");
 

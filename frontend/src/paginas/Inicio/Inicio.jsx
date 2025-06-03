@@ -4,11 +4,11 @@ import Header from '../../componentes/header/header'
 import Productos from '../../componentes/Productos/Productos.jsx'
 import ProductosDisplay from '../../componentes/ProductosDisplay/ProductosDisplay.jsx'
 
-const Inicio = () => {
+const Inicio = ({setPopupVisible}) => {
     const [categoria, setCategoria] = useState("Todos");
   return (
     <div>
-      <Header/>
+      <Header setPopupVisible={setPopupVisible}/>
       <Productos categoria={categoria} setCategoria={setCategoria}/>
       <ProductosDisplay categoria={categoria}/>
     </div>

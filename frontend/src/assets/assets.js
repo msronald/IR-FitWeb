@@ -8,6 +8,7 @@ import add_icon_green from './add_icon_green.png'
 import facebook_icon from './facebook_icon.png'
 import twitter_icon from './twitter_icon.png'
 import linkedin_icon from './linkedin_icon.png'
+import cross_icon from './cross_icon.png'
 
 import Accesorios from './Accesorios.jpg'
 import Suplementos from './suplementos.jpg'
@@ -31,7 +32,8 @@ export const assets ={
     add_icon_green,
     facebook_icon,
     twitter_icon,
-    linkedin_icon
+    linkedin_icon,
+    cross_icon
 }
 
 export const categorias_productos =[
