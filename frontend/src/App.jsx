@@ -11,12 +11,13 @@ import PlanesPopup from './componentes/PlanesPopup/PlanesPopup.jsx'
 const App = () => {
 
   const [showLogin,setShowLogin] = useState(false)
+  
   const [popupVisible, setPopupVisible] = useState(false);
 
   return (
     <>
     {showLogin? <LoginPopup setShowLogin={setShowLogin}/>:<></>}
-    {popupVisible? <PlanesPopup/>:<></>}
+    {popupVisible? <PlanesPopup setPopupVisible={setPopupVisible}/>:<></>}
 
       <div className='app'>
         <BarraDeNavegacion setShowLogin={setShowLogin} />
