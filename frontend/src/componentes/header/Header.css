@@ -1,14 +1,13 @@
 .Presentacion{
     display: flex;
     flex-direction: column;
-
     margin: 30px auto;
 }
 .header{
     height: 400px;
     background: url('https://www.aberdeensportsvillage.com/imager/images/2011/Fitness-Banner_376d1602e2e13b36fac541ad033b81f6.webp') no-repeat;
     background-color: lightgray;
-    background-size: contain;
+    background-size: 100%;
     position: relative;
     background-position: 50%;
     border-radius: 20px;
@@ -20,7 +19,7 @@
     position: relative;
     display: flex;
     gap: 1.5vw;
-    max-width: 80%;
+    max-width: 100%;
     justify-content: space-around;
     bottom: 10%;
     left: 6vw;

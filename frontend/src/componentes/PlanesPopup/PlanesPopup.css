@@ -19,6 +19,18 @@
     font-size: 14px;
     animation: fadeIn 0.5s
 }
+.login-popup-titulo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+.login-popup-titulo img{
+    width: 16px;
+    cursor: pointer;
+    position: absolute;
+    left: 50px;
+}
 .planes-popup-inputs{
     display: flex;
     flex-direction: column;
@@ -41,4 +53,37 @@
 }
 .equipamiento-checks{
     display: grid;
+}
+
+.planes-popup-resultado {
+    place-self: center;
+    width: max(23vw, 330px);
+    color: #808080;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.planes-popup-resultado h3 {
+  margin-bottom: 1rem;
+}
+
+.planes-popup-resultado ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.planes-popup-resultado li {
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.planes-popup-resultado li::before {
+  position: absolute;
+  left: 0;
 }
