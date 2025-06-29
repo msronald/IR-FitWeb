@@ -12,12 +12,12 @@ const ItemProducto = ({id,nombre,precio,descripcion,imagen}) => {
       <div className='item-producto-img-container'>
         <img className='item-producto-imagen' src={imagen} alt ="" height='200px'/>
         {!itemsCarrito[id] 
-        ? <img className='añadir' onClick={()=>añadirAlCarrito(id)} src={assets.add_icon_white} alt=''/>
-        :<div className='item-producto-contador'>
-          <img onClick={()=>removerDelCarrito(id)} src={assets.remove_icon_red} alt='' />
-          <p>{itemsCarrito[id]}</p>
-          <img onClick={()=>añadirAlCarrito(id)} src={assets.add_icon_green} alt='' />
-        </div>
+          ? <img className='añadir' onClick={()=>añadirAlCarrito(id)} src={assets.add_icon_white} alt=''/>
+          :<div className='item-producto-contador'>
+            <img onClick={()=>removerDelCarrito(id)} src={assets.remove_icon_red} alt='' />
+            <p>{itemsCarrito[id]}</p>
+            <img onClick={()=>añadirAlCarrito(id)} src={assets.add_icon_green} alt='' />
+          </div>
         }
       </div>
       <div className='item-producto-info'>
