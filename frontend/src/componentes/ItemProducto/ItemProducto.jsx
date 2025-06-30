@@ -5,12 +5,12 @@ import { TiendaContext } from '../../context/TiendaContext'
 
 const ItemProducto = ({id,nombre,precio,descripcion,imagen}) => {
 
-  const {itemsCarrito,añadirAlCarrito,removerDelCarrito} = useContext(TiendaContext);
+  const {itemsCarrito,añadirAlCarrito,removerDelCarrito,url} = useContext(TiendaContext);
 
   return (
     <div className='item-producto'>
       <div className='item-producto-img-container'>
-        <img className='item-producto-imagen' src={imagen} alt ="" height='200px'/>
+        <img className='item-producto-imagen' src={url+"/images/"+imagen} alt ="" height='200px'/>
         {!itemsCarrito[id] 
           ? <img className='añadir' onClick={()=>añadirAlCarrito(id)} src={assets.add_icon_white} alt=''/>
           :<div className='item-producto-contador'>
