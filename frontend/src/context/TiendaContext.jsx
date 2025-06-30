@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { lista_productos } from "../assets/assets";
+import axios from 'axios'
 export const TiendaContext = createContext(null)
 
 const TiendaContextProvider = (properties) =>{ //de forma anónima se envian propiedades
@@ -7,18 +7,26 @@ const TiendaContextProvider = (properties) =>{ //de forma anónima se envian pro
     const [itemsCarrito, setItemsCarrito] = useState({}); //itemsCarrito es un objeto vacio
     const url = "http://localhost:4000"
     const [token, setToken] = useState("")
+    const [lista_productos, setListaProductos] = useState([])
 
-    const añadirAlCarrito = (itemId) => {
+    const añadirAlCarrito = async (itemId) => {
         if (!itemsCarrito[itemId]){
             setItemsCarrito((prev) => ({...prev, [itemId]:1})) //Esta estructura es un objeto que genera un atributo basado en itemId tal que se tiene un objeto anonimo {itemId : valor}, donde itemId es el valor ._id en lista_productos
         }
         else{
             setItemsCarrito((prev) => ({...prev, [itemId]:prev[itemId]+1}))
         }
+        if(token){
+            await axios.post(url+"/api/cart/add", {itemId}, {headers:{token}})
+        }
     }
 
-    const removerDelCarrito = (itemId) => {
+    const removerDelCarrito = async (itemId) => {
         setItemsCarrito((prev)=>({...prev, [itemId]:prev[itemId]-1})) 
+        if(token){
+            await axios.post(url+"/api/cart/remove", {itemId}, {headers:{token}})
+        }
+        
     }
 
     const carritoObtenerMontoTotal = () => {
@@ -33,11 +41,26 @@ const TiendaContextProvider = (properties) =>{ //de forma anónima se envian pro
         return montoTotal;
     }
 
+    const traerListaProductos = async () =>{
+        const response = await axios.get(url+"/api/gym/list");
+        setListaProductos(response.data.data)
+    }
+
+    const cargarCarrito = async (token) => {
+        const response = await axios.post(url+"/api/cart/get",{},{headers:{token}})
+        setItemsCarrito(response.data.cartData);
+    }
+
     useEffect(()=>{
-        if(localStorage.getItem("token")){
-            setToken(localStorage.getItem("token"))
+        async function cargarData() {
+            await traerListaProductos();
+            if(localStorage.getItem("token")){
+                setToken(localStorage.getItem("token"));
+                await cargarCarrito(localStorage.getItem("token"))
+            }
         }
-    })
+        cargarData();
+    },[])
 
     const contextValue ={
         lista_productos,

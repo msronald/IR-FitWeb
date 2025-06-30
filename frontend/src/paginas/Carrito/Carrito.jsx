@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom'
 
 const Carrito = () => {
   
-  const {itemsCarrito, lista_productos, removerDelCarrito, carritoObtenerMontoTotal} = useContext(TiendaContext);
+  const {itemsCarrito, lista_productos, removerDelCarrito, carritoObtenerMontoTotal, url} = useContext(TiendaContext);
 
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ const Carrito = () => {
             return (
               <div key={item._id}>
                 <div className='cart-items-title cart-items-item'>
-                  <img src={item.imagen_producto} alt=""/>
+                  <img src={url + "/images/" + item.imagen_producto} alt=""/>
                   <p>{item.nombre}</p>
                   <p>S/{item.precio}</p>
                   <p>{itemsCarrito[item._id]}</p>
