@@ -12,8 +12,8 @@ const gymSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    imagen: {
-        type: [String],
+    image: {
+        type: String,
         required: true,
     },
     category: {

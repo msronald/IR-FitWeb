@@ -5,7 +5,7 @@ import validator from "validator";
 
 // login user
 const loginUser = async (req, res) => {
-	const { email, password } = req.body;
+	const { email, contraseña } = req.body;
 	try {
 		// revisando si el usuario ya existe
 		const user = await userModel.findOne({ email });
@@ -14,7 +14,8 @@ const loginUser = async (req, res) => {
 			return res.json({ success: false, message: "Credenciales inválidas" });
 		}
 		// comparando contraseñas
-		const match = await bcrypt.compare(password, user.password);
+
+		const match = await bcrypt.compare(contraseña, user.password);
 		//si no coinciden las contraseñas
 		if (!match) {
 			return res.json({ success: false, message: "Credenciales inválidas" });
@@ -37,7 +38,7 @@ const createToken = (id) => {
 
 // register user
 const registerUser = async (req, res) => {
-	const { name, email, password } = req.body;
+	const { nombre, email, contraseña } = req.body;
 	try {
 		//revisando si el usuario ya existe
 		const exists=await userModel.findOne({email});
@@ -49,19 +50,19 @@ const registerUser = async (req, res) => {
 		if(!validator.isEmail(email)){
 			return res.json({success:false,message:"Por favor ingresar un email válido"});
 		}
-		if(password.length<8){
+		if(contraseña.length<8){
 			return res.json({success:false,message:"La contraseña debe tener al menos 8 caracteres"});
 		}
 		// encriptando la contraseña hacemos useo de exceptiones para manejar errores
 		
 			const salt = await bcrypt.genSalt(10);
-			const hashedPassword = await bcrypt.hash(password, salt);
+			const hashedPassword = await bcrypt.hash(contraseña, salt);
 		
 		
 
 		const newUser = new userModel({
 			
-			name: name,
+			name: nombre,
 			email: email,
 			password: hashedPassword, 
 		

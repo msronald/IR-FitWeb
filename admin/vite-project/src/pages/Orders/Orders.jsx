@@ -60,8 +60,8 @@ const Orders = ({url}) => {
                       {order.address.firstName+" "+ order.address.lastName} {/* traemos el nombre del usuario */}  
                     </p>
                     <div className='order-item-address'>
-                      <p>{order.address.street +","}</p>
-                      <p>{order.address.city+", "+ order.address.state+ ", "+ order.address.country+", "+order.address.zipcode}</p>
+                      <p>{order.address.ciudad +","}</p>
+                      <p>{order.address.distrito+", "+ order.address.pais+", "+order.address.codigopostal}</p>
                     </div>
                     <p className='order-item-phone'>
                         {order.address.phone} {/* traemos el telefono del usuario */}
@@ -70,9 +70,9 @@ const Orders = ({url}) => {
           <p>Items: {order.items.length}</p>
           <p>Precio Total: {order.amount} PEN</p>
           <select onChange={(e) => statusHandler(e, order._id)} value={order.status} className="order-item-status"> {/* traemos el estado de la orden y creamos un evento que se ejecute al cambiar el estado */}
-                      <option value="Procesando">En proceso</option>
-                      <option value="Pendiente">Pendiente</option>
-                      <option value="Entregado">Entregado</option>
+                      <option value="Por Atender">Por Atender</option>
+                      <option value="En atención">En atención</option>
+                      <option value="Enviado">Enviado</option>
           </select>
           </div>
         ))}

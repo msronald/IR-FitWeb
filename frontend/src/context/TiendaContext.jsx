@@ -34,8 +34,7 @@ const TiendaContextProvider = (properties) =>{ //de forma anónima se envian pro
         for(const item in itemsCarrito){ // [Indice, numero de items], donde el indice coincide con el atributo _id de un objeto en lista.producto
             if (itemsCarrito[item]>0){
                 let itemInfo = lista_productos.find((producto)=>producto._id.toString() === item)
-                console.log(itemInfo)
-                montoTotal += itemInfo.precio * itemsCarrito[item];
+                montoTotal += itemInfo.price * itemsCarrito[item];
             }    
         }
         return montoTotal;
@@ -75,7 +74,7 @@ const TiendaContextProvider = (properties) =>{ //de forma anónima se envian pro
     }
 
     useEffect(() => {
-        console.log(itemsCarrito);
+        console.log(itemsCarrito)
     },[itemsCarrito])
 
     return(

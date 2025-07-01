@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import "./Verify.css"
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios'
+import { TiendaContext } from '../../context/TiendaContext'
 
 const Verify = () => {
 
@@ -10,7 +10,7 @@ const Verify = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const success = searchParams.get("success");
     const orderId = searchParams.get("orderId");
-    const {url} = useContext(StoreContext)
+    const {url} = useContext(TiendaContext)
     const navigate = useNavigate();
 
     const verifyPayment = async () => { //Revisa la respuesta del pago de la orden

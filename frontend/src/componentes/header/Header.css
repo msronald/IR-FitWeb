@@ -1,51 +1,70 @@
-.Presentacion{
-    display: flex;
-    flex-direction: column;
-    margin: 30px auto;
-}
-.header{
-    height: 400px;
-    background: url('https://www.aberdeensportsvillage.com/imager/images/2011/Fitness-Banner_376d1602e2e13b36fac541ad033b81f6.webp') no-repeat;
-    background-color: lightgray;
-    background-size: 100%;
-    position: relative;
-    background-position: 50%;
-    border-radius: 20px;
-    border-color: gray;
-    border-style: solid;
+.Presentacion {
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
-.header-contents{
-    position: relative;
-    display: flex;
-    gap: 1.5vw;
-    max-width: 100%;
-    justify-content: space-around;
-    bottom: 10%;
-    left: 6vw;
-    align-items: center;
-    padding: 10px;
-    animation: fadeIn 3s;
+.header {
+  position: relative;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: url('https://www.aberdeensportsvillage.com/imager/images/2011/Fitness-Banner_376d1602e2e13b36fac541ad033b81f6.webp') no-repeat center center / cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header-contents h2{
-    font-weight: 500;
-    color: black;
-    font-size: max(3vw, 12px);
+.header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Oscurece un poco para que el texto resalte */
 }
 
-.header-contents button{
-    border: none;
-    color: white;
-    font-weight: 500;
-    padding: 1vw 2.3vw;
-    background-color:#49557e;
-    font-size: max(1vw, 13px);
-    border-radius: 50px;   
-    cursor: pointer;
+.header-contents {
+  position: relative;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  animation: fadeIn 2s ease;
 }
 
-.header-contents button:hover{
-    background-color: #646cffaa;
-    transition: 0.3s;
+.header-contents h2 {
+  font-size: clamp(20px, 5vw, 36px);
+  font-weight: 600;
+  margin: 0;
+}
+
+.header-contents button {
+  background-color: #49557e;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-contents button:hover {
+  background-color: #646cffaa;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

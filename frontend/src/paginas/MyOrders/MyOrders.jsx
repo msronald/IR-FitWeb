@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./MyOrders.css"
-import { StoreContext } from '../../context/StoreContext';
+import { TiendaContext } from '../../context/TiendaContext';
 import axios from 'axios';
 import {assets} from '../../assets/assets';
 
 const MyOrders = () => {
 
-    const {url, token} = useContext(StoreContext)
+    const {url, token} = useContext(TiendaContext)
     const [data, setData] = useState([]);
 
     const fetchOrders = async () => {
-        const response = await axios.post(url+"/api/order/userorders",{},{header:{token}});
+        const response = await axios.post(url+"/api/order/userorders",{},{headers:{token}});
         setData(response.data.data);
     }
 
@@ -24,10 +24,12 @@ const MyOrders = () => {
     <div className='my-orders'>
         <h2>Mis ordenes</h2>
         <div className="container">
-            {data.map((order, index)=>{
-                <div key ={index} className="my-orders-order">
+            {data.map((order, index) => {
+                return(
+                    <div key ={index} className="my-orders-order">
                     <img src={assets.parcel_icon} alt="" />
                     <p>{order.items.map((item,index)=>{
+                        console.log(order)
                         if(index === order.items.length-1){
                             return item.name+" x "+item.quantity;
                         }
@@ -40,6 +42,7 @@ const MyOrders = () => {
                     <p><span>&#x25cf;</span> <b>{order.status}</b></p>
                     <button>Seguir orden</button>
                 </div>
+                ) 
             })}
         </div>
     </div>

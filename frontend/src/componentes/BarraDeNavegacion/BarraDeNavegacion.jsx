@@ -13,7 +13,9 @@ const [menu,setMenu] = useState("Inicio");
 const {carritoObtenerMontoTotal, token, setToken} = useContext(TiendaContext)
 
 const navigate = useNavigate();
-
+const irAPedidos = () =>{
+  navigate("/myorders")
+}
 const logout = () =>{
   localStorage.removeItem("token");
   setToken("");
@@ -44,7 +46,7 @@ const logout = () =>{
         :<div className='navbar-profile'>
           <img src={assets.profile_icon} alt='' />
           <ul className="nav-profile-dropdown">
-            <li><img src={assets.bag_icon} alt='' /><p>Pedidos</p></li>
+            <li onClick={irAPedidos}><img  src={assets.bag_icon} alt='' /><p>Pedidos</p></li>
             <hr />
             <li onClick={logout}><img src={assets.logout_icon} alt='' />Cerrar sesión</li>
           </ul>

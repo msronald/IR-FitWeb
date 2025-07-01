@@ -1,5 +1,5 @@
 import express from 'express';
-import { addgym,listgym,removegym } from '../controllers/gymController.js';
+import { addgym, listgym, removegym } from '../controllers/gymController.js'
 import multer from 'multer';
 
 const gymRoute = express.Router();
@@ -17,9 +17,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // creamos un objeto de almacenamiento con multer
-gymRoute.post('/addgym', upload.single("image"),addgym);
-gymRoute.get("/list",listgym)
-gymRoute.post("/remove",removegym);
+gymRoute.post('/addgym', upload.single("image"), addgym);
+gymRoute.get("/list", listgym)
+gymRoute.post("/remove", removegym);
 
 
 

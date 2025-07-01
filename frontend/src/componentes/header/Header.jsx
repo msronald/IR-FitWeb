@@ -1,18 +1,17 @@
-import React from 'react'
-import './Header.css'
+import React from 'react';
+import './Header.css';
 
-const Header = ({setPopupVisible}) => {
+const Header = ({ setPopupVisible }) => {
   return (
     <div className='Presentacion'>
-        <div className='header'>
-        </div>
+      <div className='header'>
         <div className='header-contents'>
-            <h2>Obten planes de fitness aquí</h2>
-            <button onClick={()=>setPopupVisible(true)}>Obtener un plan</button>
+          <h2>Obten planes de fitness aquí</h2>
+          <button onClick={() => setPopupVisible(true)}>Obtener un plan</button>
         </div>
+      </div>
     </div>
-    
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

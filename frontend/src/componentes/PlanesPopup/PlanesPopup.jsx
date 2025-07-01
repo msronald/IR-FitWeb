@@ -69,10 +69,12 @@ const PlanesPopup = ({setPopupVisible}) => {
     <div className='planes-popup'>
       {!showResult && (
         <form className='planes-popup-container' onSubmit={handleSubmit}>
-          <div className='planes-popup-titulo'>
+          <div className='planes-popup-header'>
+            <div className='planes-popup-titulo'>
+              <h2>Formulario</h2>
+              <h4>Ingrese los siguientes datos para generar su propio plan</h4>
+            </div>
             <img onClick={()=>setPopupVisible(false)} src={assets.cross_icon} alt="" />
-            <h2>Formulario</h2>
-            <h4>Ingrese los siguientes datos para generar su propio plan</h4>
           </div>
           <div className="planes-popup-inputs">
             <input type="number" name="edad" placeholder="Edad" required min="1" max="99" step="1" />
@@ -109,7 +111,10 @@ const PlanesPopup = ({setPopupVisible}) => {
 
       {showResult && (
         <div className="planes-popup-resultado">
-          <h3>Plan de Entrenamiento Generado:</h3>
+          <div className='planes-popup-resultado-titulo'>
+          <h3>Plan de Entrenamiento Generado</h3>
+          <img onClick={()=>setPopupVisible(false)} src={assets.cross_icon} alt="" />
+          </div>
           <ul>
             {resultado
               .split('\n')
