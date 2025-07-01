@@ -3,6 +3,8 @@ import './Orden.css'
 import { TiendaContext } from '../../context/TiendaContext'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const Orden = () => {
 
@@ -57,10 +59,10 @@ const Orden = () => {
 
   useEffect(()=>{
     if(!token){
-      navigate("/cart")
+      navigate("/carrito")
     }
     else if(carritoObtenerMontoTotal() === 0){
-      navigate("/cart")
+      navigate("/carrito")
     }
   },[token])
 
@@ -80,10 +82,10 @@ const Orden = () => {
           <input required name="ciudad" onChange={onChangeHandler} value={data.ciudad} type="text" placeholder='Ciudad'/>
         </div>
         <div className="multi-fields">
-          <input required name="codigo-postal" onChange={onChangeHandler} value={data.codigopostal} type="text" placeholder='Codigo  Postal'/>
+          <input required name="codigopostal" onChange={onChangeHandler} value={data.codigopostal} type="text" placeholder='Codigo Postal'/>
           <input required name="pais" onChange={onChangeHandler} value={data.pais} type="text" placeholder='Pais'/>
         </div>
-        <input required name="celular" onChange={onChangeHandler} value={data.celular} type="texto" placeholder='Celular'/>
+        <input required name="celular" onChange={onChangeHandler} value={data.celular} type="number" pattern="[0-9]{9}" placeholder='Celular'/>
       </div>
       <div className='place-order-right'>
         <div className='cart-total'>

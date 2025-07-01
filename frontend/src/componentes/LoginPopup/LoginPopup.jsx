@@ -29,7 +29,7 @@ const LoginPopup = ({setShowLogin}) => {
     const onLogin = async (event) =>{
         event.preventDefault()
         let newUrl = url;
-        if(currState==="Login"){
+        if(currState==="Iniciar sesión"){
             newUrl += "/api/user/login"
         }
         else{
@@ -59,7 +59,7 @@ const LoginPopup = ({setShowLogin}) => {
                 {currState==="Iniciar sesión"?<></>: <input name='nombre' onChange={onChangeHandler} value={data.nombre} type="text" placeholder='Tu nombre' required />}
                
                 <input name='email' onChange={onChangeHandler} value={data.email} type="email" placeholder='Tu Correo' required />
-                <input type="contraseña" onChange={onChangeHandler} value={data.contraseña} placeholder='Contraseña' required />
+                <input name='contraseña' type="password" onChange={onChangeHandler} value={data.contraseña} placeholder='Contraseña' required />
             </div>
             <button type='submit'>{currState==="Registrarse"?"Crear cuenta":"Iniciar sesión"}</button>
             <div className="login-popup-condition">

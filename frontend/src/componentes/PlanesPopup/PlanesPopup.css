@@ -1,10 +1,13 @@
-.planes-popup{
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background-color: #00000090;
-    display: grid;
+.planes-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000090;
+  display: grid;
+  place-items: center;
+  z-index: 1000;
 }
 .planes-popup-container{
     place-self: center;
@@ -19,17 +22,21 @@
     font-size: 14px;
     animation: fadeIn 0.5s
 }
-.login-popup-titulo{
-    display: flex;
+.planes-popup-titulo{
     justify-content: space-between;
     align-items: center;
     color: black;
 }
-.login-popup-titulo img{
-    width: 16px;
-    cursor: pointer;
-    position: absolute;
-    left: 50px;
+.planes-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.planes-popup-header img {
+  width: 20px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 .planes-popup-inputs{
     display: flex;
@@ -68,6 +75,27 @@
     font-size: 14px;
 }
 
+.planes-popup-resultado-titulo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.planes-popup-resultado-titulo h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.planes-popup-resultado img{
+    position: relative;
+    bottom: 15px;
+    left: 10px;
+    width: 16px;
+    cursor: pointer;
+    transition: scale 0.2s;
+}
 .planes-popup-resultado h3 {
   margin-bottom: 1rem;
 }

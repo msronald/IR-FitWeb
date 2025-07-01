@@ -14,6 +14,7 @@ import gymRoute from "./routes/gymRoute.js";
 import userRouter from "./routes/userRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import cartRouter from "./routes/cartRoute.js";
+import 'dotenv/config'
 
 // Creamos una instancia de la aplicación Express
 const app = express();
@@ -25,8 +26,8 @@ app.use(express.json());
 // Middleware para permitir solicitudes desde otros dominios (CORS)
 app.use(cors());
 
-//db coneccion
-connectDB();
+
+
 
 //Api endoints
 app.use("/api/gym", gymRoute); // Ruta para manejar las operaciones relacionadas con el gimnasio
@@ -44,3 +45,6 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server Started on http://localhost:${port} `); // Mensaje en consola indicando que el servidor está en ejecución
 });
+
+//db coneccion
+connectDB();

@@ -9,11 +9,11 @@ const ProductosDisplay = ({categoria}) => {
 
   return (
     <div className='productos-display' id='productos-display'>
-      <h2>Los mejores sumplementos a tu alcance</h2>
+      <h2>Los mejores productos a tu alcance</h2>
       <div className='lista-productos-display'>
         {lista_productos.map((item, index) =>{
-          if(categoria=="Todos" || categoria == item.categoria){
-            return <ItemProducto key={index} id={item._id} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} imagen={item.imagen_producto}/>
+          if(categoria=="Todos" || categoria == item.category){
+            return <ItemProducto key={index} id={item._id} nombre={item.name} descripcion={item.description} precio={item.price} imagen={item.image}/>
           }
         })}
       </div>

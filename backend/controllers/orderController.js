@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 //creamos la orden con los datos del usuario
 const placeOrder = async (req, res) => {
 
-    const frontendUrl = "http://localhost:5174"; //URL del frontend
+    const frontendUrl = "http://localhost:5173"; //URL del frontend
     try {
        const newOrder = new orderModel({
            userId: req.body.userId,
@@ -44,6 +44,8 @@ const placeOrder = async (req, res) => {
              },
              quantity: 1,
          })
+
+         console.log("usa la siguiente tarjeta: 4000006040000068")
          {/*creamos la sesion de pago con stripe
          y le pasamos los items de la orden*/}
          const session = await stripe.checkout.sessions.create({
@@ -105,6 +107,7 @@ const updateStatus = async(req,res)=>{
 // user orders for fronted
 
 const userOrders= async (req,res)=>{
+    console.log(req)
     try{
         const orders= await orderModel.find({userId:req.body.userId});
         res.json({success:true, data:orders});

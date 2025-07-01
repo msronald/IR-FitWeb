@@ -12,7 +12,7 @@ const Add = ({url}) => {
     name: "",
     description: "",
     price: "",
-    category: "Ceviche",
+    category: "Suplemento",
   });
 
   const onChangeHandler = (event) => {
@@ -30,7 +30,7 @@ const Add = ({url}) => {
     formData.append("price", Number(data.price));
     formData.append("category", data.category);
     formData.append("image", image);
-    const response = await axios.post(`${url}/api/food/addfood`, formData);
+    const response = await axios.post(`${url}/api/gym/addgym`, formData);
     console.log("Respuesta del servidor:", response.data);
 
     if (response.data.sucess) {
@@ -106,7 +106,7 @@ const Add = ({url}) => {
               value={data.category}
               name="category"
             >
-              <option value="Suplemento">Suplemento</option>
+              <option value="Suplementos">Suplemento</option>
               <option value="Accesorios">Accesorios</option>
               <option value="Pesas y barras">Pesas y barras</option>
               <option value="Equipamiento">Equipamiento</option>

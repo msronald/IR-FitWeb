@@ -28,11 +28,11 @@ const Carrito = () => {
             return (
               <div key={item._id}>
                 <div className='cart-items-title cart-items-item'>
-                  <img src={url + "/images/" + item.imagen_producto} alt=""/>
-                  <p>{item.nombre}</p>
-                  <p>S/{item.precio}</p>
+                  <img src={url + "/images/" + item.image} alt=""/>
+                  <p>{item.name}</p>
+                  <p>S/{item.price}</p>
                   <p>{itemsCarrito[item._id]}</p>
-                  <p>S/{item.precio*itemsCarrito[item._id]}</p>
+                  <p>S/{item.price*itemsCarrito[item._id]}</p>
                   <p onClick={()=>removerDelCarrito(item._id)} className='cross'>x</p>
                 </div>
                 <hr/>

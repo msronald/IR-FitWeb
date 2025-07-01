@@ -33,7 +33,7 @@ const Footer = () => {
             </div>
         </div>
         <hr></hr>
-        <p className='footer-copyright'> Copyright 2024 © Greatfit.com - Todos los derechos reservados</p>
+        <p className='footer-copyright'> Copyright 2025 © GreatFit.com - Todos los derechos reservados</p>
     </div>
   )
 }

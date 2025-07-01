@@ -121,10 +121,9 @@
   top: 110%; /* Evita que el menú toque el perfil */
   display: flex;
   flex-direction: column;
-  background-color: #2aa0cf; /* Azul con ligera transparencia */
+  background-color: #324750; /* Azul con ligera transparencia */
   padding: 12px 20px;
   border-radius: 10px;
-  border: 1px solid #ecf1f7;
   outline: 2px solid white;
   list-style: none;
   z-index: 1000; /* Asegura que quede encima de otros elementos */

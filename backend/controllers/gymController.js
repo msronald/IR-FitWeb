@@ -3,12 +3,12 @@ import fs from "fs";
 
 //añadiendo los productos del gym a la base de datos 
 const addgym = async (req, res) => {
- image_filename = `${req.file.filename}`;
+  let image_filename = `${req.file.filename}`;
   const gym = new gymModel({
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
-    image: ["image_filename"], 
+    image: image_filename, 
     category: req.body.category,
   });
   try {
